@@ -1,0 +1,16 @@
+extends layout.pug
+
+block content
+  h1 Rotary Memeber's List
+
+  //- 'list' is an array of 'FName LName' from the rotarymembers table.
+  //- We take it apart and make anchores with the names
+
+  p
+    each val in list
+      a(href='/rotary/'+val) #{val}
+      br
+
+
+
+

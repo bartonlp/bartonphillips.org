@@ -1,0 +1,123 @@
+extends layout.pug
+
+//- Add styles to main.pug for the table
+block style
+  style.
+    td { padding: 0 .3rem; }
+    td:nth-child(4), td:nth-child(5) { width: 12rem; }
+    td:nth-child(1) {
+      width: 11rem;
+      word-break: break-all;
+    }
+    td:nth-child(3) { 
+      width: 30rem;
+      word-break: break-all;
+    }
+    #table-container {
+      position: relative;
+      width: 100%;
+      height: 20rem;
+      overflow: auto;
+    }
+    #maintitle {text-align: center; }
+
+//- Add Javascript to the main.pug <head> after the standard stuff.
+block script
+  script.
+    jQuery(document).ready(function($) {
+      // Remove the FindBot
+
+      $("body").on('click', function(e) {
+        $("#FindBot").remove();
+      });
+
+      // If we click on 'isJavaScript' we want to add a box with the human values for the 
+      // hex codes. To get the size of the box I display it off screen and do a outerWidth()
+      // and then remove it. Then I use that width to determin where to put the box.
+
+      $("td:nth-child(7)").on('click', function(e) {
+        let js = parseInt($(this).text(), 16),
+        human, h = '', ypos, xpos;
+
+        // The td is in a tr which in in a tbody, so table is three
+        // prents up.
+
+        human = {
+          1: "Start", 2: "Load", 4: "Script", 8: "Normal",
+          0x10: "NoScript", 0x20: "B-PageHide", 0x40: "B-Unload", 0x80: "B-BeforeUnload",
+          0x100: "T-BeforeUnload", 0x200: "T-Unload", 0x400: "T-PageHide",
+          0x1000: "Timer", 0x2000: "Bot", 0x4000: "Csstest"
+        };
+
+        if(js == 0) {
+          h = 'curl';
+        } else {
+          for(var [k, v] of Object.entries(human)) {
+            // js is the hex number and k is the value from 'human'. If the and is true
+            // we add the value form 'human' with a <br>, otherwise nothing.
+            h += (js & k) ? v + "<br>" : '';
+          }
+        }
+
+        // Position this way to the left and then look at its width.
+
+        $("body").append("<div id='X' style='position: absolute; top: -1000px "
+                         +"left: -1000px; padding: 10px;'>"+h+"</div>");
+
+        let w = $("#X").outerWidth();
+
+        let pos = $(this).offset(); // the td
+        let cpos = $('#table-container').offset(); // the <div>
+        let scroll = $('#table-container').scrollTop(); // the div scroll bar
+
+        // left pos of the <td> minus the left pos of the containing <div>
+        // minus the width of the box plus 10px.
+        xpos = pos.left - cpos.left -(w + 10); 
+        // for ypos take the top of the <td> minus the top of the <div> plus the scroll top.
+        ypos = pos.top - cpos.top + scroll;
+
+        $("#X").remove(); // get rid of our test
+        $("#FindBot").remove(); // remove FindBot
+
+        // put FindBot in the <div> right next to our <td> for 'isJavaScript'
+       
+        $('#table-container').append("<div id='FindBot' style='position: absolute; "+
+                         "top: "+ypos+"px; "+
+                         "left: "+xpos+"px; "+
+                         "background-color: white; "+
+                         "border: 5px solid black; "+
+                         "padding: 10px;'>"+h+"</div>");
+
+        e.stopPropagation();
+      });
+    });
+
+block content
+  h1#maintitle Web Stats
+
+  h3 Tracker Table
+
+  //- First a <div> then the <table>
+  //- 'list' has the list of rows. We use the first array entry to make the <thead>
+  //- Then we take appart 'list', 'val' is a row and 'k', 'v' are the key and value.
+  //- We check the key to see if we should use the value or not. We also use the key
+  //- 'isJavaScript' to change the value into hex. I seem to be able to use the PHP functions
+  //- to do this. However I also seem to be able to use some JavaScript functions also, with
+  //- some restrictions it seems as I could not use v.toString(16) to do the dechec conversion?
+
+  #table-container
+    table(border=1)
+      thead
+        tr
+          each x, k in list[0]
+            if k != 'refid' && k != 'id' && k != 'site'
+              th= k 
+      tbody
+        each val in list
+          tr
+            each v, k in val
+              if k != 'refid' && k != 'id' && k != 'site'
+                if k == 'isJavaScript'
+                  - v = dechex(v)
+
+                td= v

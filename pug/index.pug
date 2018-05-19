@@ -1,0 +1,97 @@
+extends layout.pug
+
+block style
+  style.
+    body {
+      background-color: hsla(115, 55%, 55%, 0.35);
+    }
+    .locstr {
+      margin: 1rem 0;
+    }
+    .user-info {
+      line-height: 1rem;
+      margin: 0px;
+    }
+    .hereMsg {
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding-top: 1rem;
+    }
+    h1 {
+      text-align: center;
+    }
+    /* Colors */
+    .green {
+      color: green;
+    }
+    .red {
+      color: red;
+    }
+    #show {
+      display: block;
+      width: 32rem;
+      height: 23rem;
+
+      margin: 0 auto .5rem;
+      overflow: hidden;
+    }
+    #show img {
+      width: 100%;
+    }
+    /* Sections */
+    #browser-info { /* section */
+      border-top: 1px solid gray;
+    }
+    #blog { /* section */
+      width: 40%;
+      text-align: center;
+      background-color: #FCF6CF;
+      padding: 20px;
+      margin: auto;
+      border: 1px solid #696969;
+    }
+
+block script
+  // local script
+  script(src="https://bartonphillips.net/js/phpdate.js")
+  script(src="https://bartonphillips.net/js/yimage.js")
+  script.
+    // This does the banner logic and places the images in "#show" below.
+    // The path to images on rpi is the first agrument. The second arg tells dobanner to not use
+    // recursion. There can be a third arg which is 'seq' to tell the function to use sequential
+    // numbers rather than a random number for the index into the glob array.
+
+    dobanner("Pictures/Germany2010/*.JPG", 'no');
+
+    jQuery(document).ready(function($) {
+      // Date Today
+      setInterval(function() {
+        var d = date("l F j, Y");
+        var t = date("H:i:s T"); // from phpdate.js
+        $("#datetoday").html("<span class='green'>"+d+"</span><br>Your Time is: <span class='green'>"+t+"</span>");
+      }, 1000);
+    });
+
+block content
+
+  // #show is where the dobanner() images are shown.
+  section#show
+
+  section#browser-info
+    | !{info.hereMsg}
+    div.locstr
+      | Our domain is 
+      i bartonphillips.org
+      br
+      | !{info.locstr}
+      | Start: 
+      span.green #{info.date} in New Bern, NC
+      br
+      | Today is: 
+      span#datetoday #{info.date}
+    p Try our 
+      a(href='https://www.bartonphillips.com') Home Page (www.bartonphillips.com)
+
+  section#blog
+    a(target="_blank" href="proxy.php?https://bartonplp.blogspot.com") My BLOG with tips and tricks
+

@@ -1,0 +1,70 @@
+doctype html
+html(lang='en')
+  head
+    block head
+      //- if info.title is set use it else use the indo.desc as the title
+      if info.title
+        title= info.title
+      else
+        title= info.desc
+
+      // This is so the tracker.php etc will work
+      base(href="https://www.bartonphillips.org")
+
+      meta(charset='utf-8')
+      meta(name="viewport" content="width=device-width, initial-scale=1")
+      meta(name="copyright" content=info.copyright)
+      meta(name="Author" content=info.author)
+      meta(name="description" content=info.desc)
+      meta(name="keywords" content="Barton Phillips, Programming")
+      link(rel="canonical" href="https://www.bartonphillips.com")
+      link(rel="shortcut icon" href="https://bartonphillips.net/images/favicon.ico")
+      //- blp.css has the ids for the footer
+      link(rel="stylesheet" href="https://bartonphillips.net/css/blp.css")
+      //- csstest-...css turns into tracker.php
+      link(rel="stylesheet" href="csstest-"+info['LAST_ID']+".css")
+      
+    //- Extra link things can go here
+    block link
+
+      script(src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js")
+      script.
+        //- info LAST_ID must be an array item. info.LAST_ID just does not work!
+        var lastId = #{info['LAST_ID']};
+      script(src="https://bartonphillips.net/js/tracker.js")
+
+    //- Extra scripts go here
+    block script
+
+    //- Extra styles go here
+    block style
+
+  //- always the same header
+  body
+    header
+      a(href="https://www.bartonphillips.org")
+        img#logo(src='https://bartonphillips.net/images/blp-image.png')
+      a(href="http://linuxcounter.net/")
+        img#linuxcounter(src="tracker.php?page=normal&id=" + info['LAST_ID'])
+
+    //- Main content goes here
+    block content
+    
+  //- always the same footer
+  hr
+  footer
+    a(href='/aboutwebsite') About This Site
+    address
+      | Copyright &copy; 2018 Barton L. Phillips
+      br
+      | 2701 Amhurst Blvd. #12A, New Bern, North Carolina 28562
+      br
+      | bartonphillips@gmail.com
+    p Counter Reset: Feb. 4, 2017
+
+    #hitCounter
+      table#hitCountertbl
+        tr#hitCountertr
+          th#hitCounterth 7,511
+
+    h4 Last Modified: #{lastmod}

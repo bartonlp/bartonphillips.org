@@ -1,0 +1,23 @@
+extends layout.pug
+
+block style
+  style #info td {padding: 0 .5rem;}
+
+block content
+  h1 Information for #{row.FName} #{row.LName}
+
+  //- The row information is in 'row' and we take it appart into a table with the key/value
+  //- This is for a particular Rotary member all from rotarymember table.
+
+  table#info(border=1)
+    each val, inx in row
+      tr
+        td=inx
+        td=val
+
+
+
+
+
+
+

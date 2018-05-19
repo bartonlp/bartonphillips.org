@@ -1,0 +1,4 @@
+User-agent: *  
+Disallow: /mysitemap.json
+
+Sitemap: http://www.bartonphillips.com/Sitemap.xml
