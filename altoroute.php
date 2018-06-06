@@ -82,7 +82,8 @@ function gethomepage() {
   $info->date = date("l F j, Y H:i:s T");
   $lastmod = date("Y-m-d H:i T", filemtime('pug/index.pug'));
   $info->mainTitle = "h1 $S->mainTitle";
-  
+  $info->title = $info->desc = $S->siteName;
+  $info->link = "https://www.bartonphillips.com";
   if(!($hereId = $_COOKIE['SiteId'])) {
     $S->query("select count, date(created) from $S->masterdb.logagent ".
               "where ip='$S->ip' and agent='$S->agent' and site='$S->siteName'");
@@ -92,7 +93,7 @@ function gethomepage() {
     if($hereCount > 1) {
       $info->hereMsg =<<<EOF
 <div class="hereMsg">You have been to our site $hereCount since $created<br>
-Why not <a target="_blank" href="register.php">register</a>
+Why not <a href="register.php">register</a>
 </div>
 EOF;
     }

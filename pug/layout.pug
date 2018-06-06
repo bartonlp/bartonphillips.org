@@ -17,7 +17,9 @@ html(lang='en')
       meta(name="Author" content=info.author)
       meta(name="description" content=info.desc)
       meta(name="keywords" content="Barton Phillips, Programming")
-      link(rel="canonical" href="https://www.bartonphillips.com")
+      if info.link
+        link(rel='canonical' href=info.link)
+      
       link(rel="shortcut icon" href="https://bartonphillips.net/images/favicon.ico")
       //- blp.css has the ids for the footer
       link(rel="stylesheet" href="https://bartonphillips.net/css/blp.css")
@@ -56,8 +58,6 @@ html(lang='en')
     a(href='/aboutwebsite') About This Site
     address
       | Copyright &copy; 2018 Barton L. Phillips
-      br
-      | 2701 Amhurst Blvd. #12A, New Bern, North Carolina 28562
       br
       | bartonphillips@gmail.com
     p Counter Reset: Feb. 4, 2017

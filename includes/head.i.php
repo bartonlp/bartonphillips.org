@@ -42,8 +42,8 @@ return <<<EOF
   <meta name="Author" content="$this->author">
   <meta name="description" content="{$arg['desc']}">
   <meta name="keywords" content="Barton Phillips, Programming, Tips and tricks, blog">
-  <link rel="canonical" href="https://www.bartonphillips.com">
   <!-- ICONS, RSS -->
+
   <link rel="shortcut icon" href="https://bartonphillips.net/images/favicon.ico">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="https://bartonphillips.net/css/blp.css" title="blp default">
