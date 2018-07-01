@@ -103,7 +103,7 @@ $h->script .= <<<EOF
 // recursion. There can be a third arg which is 'seq' to tell the function to use sequential
 // numbers rather than a random number for the index into the glob array.
 
-dobanner("Pictures/Germany2010/*.JPG", 'no');
+dobanner("Paso Robles 2011", 'no');
 
 jQuery(document).ready(function($) {
   // Date Today
