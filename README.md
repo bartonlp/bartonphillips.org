@@ -1,7 +1,6 @@
 # This is my home site on HP-Envy
-I am using lfs for big files (https://git-lfs.github.com/).
 
-<hr>
+I am using lfs for big files (https://git-lfs.github.com/).
 
 # How to Get HTTPS to work with Suddenlink
 
@@ -19,8 +18,6 @@ need to add it to the DNS TXT record each time you renew.
 
 Make a __CNAME__: _acme-challenge (_acme-challenge.bartonphillips.org) under *bartonphillips.org*.  
 Then it all works.
-
-<hr>
 
 # How we update the A record at DigitalOcian
 
@@ -70,8 +67,6 @@ echo "Done Update";
 
 This file also uses *dnsARecord* to hold the last IP.
 
-<hr>
-
 # How to get the GM107 (GeForce 940MX) to use HDMI sound after an upgrade
 
 This is how to get the sound working again if it stops due to a driver update.
@@ -94,7 +89,5 @@ And reboot.
 
 With any luck the sound will work. Goto the speaker icon and check the settings->Hardware and see if GM 107 is on. Select it and test.
 If GM107 does not say 'OFF' all is well and you should have sound again.
-
-<hr>
 
 # bartonphillips.org
