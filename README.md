@@ -1,4 +1,5 @@
-# BLP 2021-10-28 -- This directory is not saved to github.com!
+# This is my home site on HP-Envy
+I am using lfs for big files.
 
 # How to Get HTTPS to work with Suddenlink
 
