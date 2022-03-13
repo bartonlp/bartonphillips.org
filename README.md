@@ -1,5 +1,7 @@
 # This is my home site on HP-Envy
-I am using lfs for big files.
+I am using lfs for big files (https://git-lfs.github.com/).
+
+<hr>
 
 # How to Get HTTPS to work with Suddenlink
 
@@ -17,6 +19,8 @@ need to add it to the DNS TXT record each time you renew.
 
 Make a __CNAME__: _acme-challenge (_acme-challenge.bartonphillips.org) under *bartonphillips.org*.  
 Then it all works.
+
+<hr>
 
 # How we update the A record at DigitalOcian
 
@@ -65,4 +69,32 @@ echo "Done Update";
 ```
 
 This file also uses *dnsARecord* to hold the last IP.
+
+<hr>
+
+# How to get the GM107 (GeForce 940MX) to use HDMI sound after an upgrade
+
+This is how to get the sound working again if it stops due to a driver update.
+
+First check the 'Menu->Additional Drivers' to see that the nvidia driver is in use.
+
+Second do: egrep '0x10de.*auto' /lib/udev/rules.d
+
+This should show line with: ="auto"  
+They should be in: 71-nvidia.rules  
+As root, edit the file: nano 71-nvidia.rules  
+Change the line with: ="auto"  
+to: ="on"  
+
+Save the file.
+
+Then do: update-initramfs -u
+
+And reboot.
+
+With any luck the sound will work. Goto the speaker icon and check the settings->Hardware and see if GM 107 is on. Select it and test.
+If GM107 does not say 'OFF' all is well and you should have sound again.
+
+<hr>
+
 # bartonphillips.org
