@@ -1,0 +1,48 @@
+{
+  "siteDomain": "bartonphillips.org",
+  "siteName": "BartonphillipsOrg",
+  "mainTitle": "<h1>Bartonphillips.org on HP-envy</h1>",
+  "title": "Barton-Home-HP", // this is the <title> item
+  "desc": "My home HP computer", // meta description
+  "keywords": "My Home", // meta keywords
+  // we could define a doctype and a preheadcomment
+  //"doctype": "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN' 'http://www.w3.org/TR/html4/loose.dtd'>",
+  "preheadcomment": "<!-- This is a test site only and can only be reached via https -->", // This must be an HTML comment <!-- -->
+  //"noTrack": true,
+  //"nodb": true,
+  "emailDomain": "bartonphillips.org",
+  "path": "/var/www/bartonphillips.org",
+  "className": "SiteClass",
+  "copyright": "Barton L. Phillips",
+  "author": "Barton L. Phillips, mailto:bartonphillips@gmail.com",
+  "address": "New Bern, North Carolina",
+  "masterdb": "barton",
+  "dbinfo": {
+    "host": "localhost",
+    "user": "barton",
+    //"password": "add-password", // the Database class gets the password
+    //from ~/database-password (or from here if this is
+    //uncommented. 
+    "database": "barton",
+    "engine": "mysqli"
+  },
+  "errorMode": {
+    "development": true, // development automatically sets email to true.
+                         // If development is true then noEmail will be
+                         // set to true unless noEmail is set to false!
+                         // Only false not null or just missing.
+    "noEmail": null, 
+    "noHtml": false,
+    "noOutput": false
+  },
+  "headFile": "includes/head.i.php",
+  "bannerFile": "includes/banner.i.php",
+  "footerFile": "includes/footer.i.php",
+  "count": true,
+  "countMe": true,
+  "ctrmsg": "Counter Reset: April 11, 2021",
+  "trackerImg1": "/images/blp-image.png",
+  "EMAILADDRESS": "bartonphillips@gmail.com",
+  "EMAILRETURN": "bartonphillips@gmail.com",
+  "EMAILFROM": "bartonphillips@gmail.com"
+}

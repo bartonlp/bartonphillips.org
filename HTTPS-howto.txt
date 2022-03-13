@@ -1,0 +1,12 @@
+To get the letsencrypt to work with SuddenLink who blocks port 80 and 25 use this:
+
+    sudo certbot certonly --manual --preferred-challenges dns -d bartonphillips.org
+
+Certbot gives you a secret TXT key to add to the DNS record for bartonphillips.org on DigitalOcean.com.
+The key that certbot gives you  must be reset each time. Certbot will give you a new key and you
+need to add it to the DNS TXT record each time you renew.
+
+Make a CNAME: _acme-challenge (_acme-challenge.bartonphillips.org)
+under bartonphillips.org.
+Then it all works.
+
