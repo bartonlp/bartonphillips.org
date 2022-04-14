@@ -1,0 +1,19 @@
+{
+    "name": "rochasmarcelo/emailmd",
+    "description": "A PHP library to read e-mails using imap extension.",
+    "keywords": ["imap", "email", "php", "read"],
+    "homepage": "https://github.com/rochamarcelo/EmailMD/",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3",
+        "ext-imap": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.8.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "EmailMD\\": "src/EmailMD"
+        }
+    }
+}

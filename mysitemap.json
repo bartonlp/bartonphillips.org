@@ -16,6 +16,8 @@
   "copyright": "Barton L. Phillips",
   "author": "Barton L. Phillips, mailto:bartonphillips@gmail.com",
   "address": "New Bern, North Carolina",
+  // "defaultCss": true // If true no default, else if null the
+  // standard default blp.css, else the value of defaultCss.
   "masterdb": "barton",
   "dbinfo": {
     "host": "localhost",
@@ -35,9 +37,9 @@
     "noHtml": false,
     "noOutput": false
   },
-  "headFile": "includes/head.i.php",
-  "bannerFile": "includes/banner.i.php",
-  "footerFile": "includes/footer.i.php",
+  "headFile": "/var/www/bartonphillips.org/includes/head.i.php",
+  "bannerFile": "/var/www/bartonphillips.org/includes/banner.i.php",
+  "footerFile": "/var/www/bartonphillips.org/includes/footer.i.php",
   "count": true,
   "countMe": true,
   "ctrmsg": "Counter Reset: April 11, 2021",

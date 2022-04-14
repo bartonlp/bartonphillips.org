@@ -20,6 +20,12 @@ RewriteRule (.*) - [F,L]
 # rewrite the address of csstest.css to tracker.php?id=$1&csstest
 RewriteRule ^csstest-(.*)\.css$ https://bartonphillips.net/tracker.php?id=$1&csstest [L,QSA]
 
+# only bartonphillips.org is available via ssl so if I get a request for www. change it to
+# https://bartonphillips.org and provide any query info etc.
+
+RewriteCond %{HTTP_HOST} www\.bartonphillips\.org [NC]
+RewriteRule ^(.*)$ https://bartonphillips.org/$1 [L,QSA]
+
 # Keep others from looking at these files.
 #RewriteRule ^(go\.myphotochannel.com|includes|node_modules|phpquery)/.*$ - [F,L]
 #RewriteRule ^(mysitemap\.json|getinfo\.php|package.*)$  - [F,L]
@@ -38,6 +44,7 @@ FileETag All
 ExpiresActive On
 ExpiresDefault "access plus 10 day"
 ExpiresByType text/html A0
+ExpiresByType text/javascript A0
 ExpiresByType application/x-javascript A0
 ExpiresByType application/javascript A0
 ExpiresByType text/css "access plus 1 month"

@@ -40,7 +40,7 @@ if($_GET['path']) {
   // Turn the array into a string of lines with a \n
 
   foreach($x as $v) {
-    $banner_photos .= "http://bartonphillips.org/$v\n";
+    $banner_photos .= "https://bartonphillips.org/$v\n";
   }
 
   $banner_photos = rtrim($banner_photos, "\n");
@@ -54,7 +54,6 @@ if($_GET['path']) {
 $S = new SiteClass($_site);
 
 $h->css = <<<EOF
-<style>
 .item { text-align: center; }
 /* This is like <hr> */
 .item::after {
@@ -82,13 +81,12 @@ $h->css = <<<EOF
     display: none;
   }
 }
-</style>
 EOF;  
 
 $b->msg = "<br><a href='webstats.php'>Webstats</a><br>";
 $b->script = <<<EOF
-  <script src='yimage.js'></script>
-  <script>dobanner("Photos/*.png", {recursive: 'no', size: '100', mode: "rand"});</script>
+  <script src='https://bartonphillips.net/js/yimage.js'></script>
+  <script>dobanner("Photos/*.png", "Bonnie & Me",  {recursive: 'no', size: '100', mode: "rand"});</script>
 EOF;
 
 list($top, $footer) = $S->getPageTopBottom($h, $b);

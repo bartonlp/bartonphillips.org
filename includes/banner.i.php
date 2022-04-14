@@ -1,11 +1,15 @@
 <?php
-// BLP 2021-06-06 -- see bartonphillips.com/includes/banner.i.php for information on trackerImg*
-// BLP 2021-03-26 -- add nodb logic
+/* BLP 2022-04-09 -
+   if nodb or noTrack then the $image* file are all null. 
+   $image1, $image2, $image3 and $mainTitle are set by SiteClass.
+
+   There is no $h->siteDomain currenlty.
+*/
 
 return <<<EOF
 <header>
-  <a href="http://www.bartonphillips.com">
-$image1
+  <a href="https://www.$this->siteDomain">
+$image1</a>
 $image2
 $mainTitle
 <noscript>

@@ -1,0 +1,13 @@
+{
+  "require":
+  {
+    "phpclasses/emailmd": ">=1.3"
+  },
+  "repositories":
+  [
+    {
+      "type": "composer",
+      "url": "https:\/\/www.phpclasses.org\/"
+    }
+  ]
+}
