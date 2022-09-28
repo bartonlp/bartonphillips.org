@@ -18,38 +18,10 @@ RewriteRule (.*) - [F,L]
 #RewriteRule ^Sitemap\.xml$ sitemap.php [L,NC]
 
 # rewrite the address of csstest.css to tracker.php?id=$1&csstest
-RewriteRule ^csstest-(.*)\.css$ https://bartonphillips.net/tracker.php?id=$1&csstest [L,QSA]
+RewriteRule ^csstest-(.*)\.css$ https://bartonlp.com/otherpages/tracker.php?id=$1&page=csstest [L,QSA]
 
 # only bartonphillips.org is available via ssl so if I get a request for www. change it to
 # https://bartonphillips.org and provide any query info etc.
 
 RewriteCond %{HTTP_HOST} www\.bartonphillips\.org [NC]
 RewriteRule ^(.*)$ https://bartonphillips.org/$1 [L,QSA]
-
-# Keep others from looking at these files.
-#RewriteRule ^(go\.myphotochannel.com|includes|node_modules|phpquery)/.*$ - [F,L]
-#RewriteRule ^(mysitemap\.json|getinfo\.php|package.*)$  - [F,L]
-
-# include .shtml files or files with the execution bit set
-AddType text/html .shtml
-AddOutputFilter INCLUDES .shtml
-XBitHack on
-
-FileETag All
-
-<FILES "css|gif|png|jpeg">
-  Header set Cache-Control "max-age=2592000"
-</FILES>
-
-ExpiresActive On
-ExpiresDefault "access plus 10 day"
-ExpiresByType text/html A0
-ExpiresByType text/javascript A0
-ExpiresByType application/x-javascript A0
-ExpiresByType application/javascript A0
-ExpiresByType text/css "access plus 1 month"
-ExpiresByType text/plain "access plus 1 day"
-ExpiresByType image/gif "access plus 1 month"
-ExpiresByType image/png "access plus 1 month"
-ExpiresByType image/jpeg "access plus 1 month"
-ExpiresByType application/x-icon "access plus 1 year"

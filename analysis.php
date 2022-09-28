@@ -8,6 +8,6 @@
 // BLP 2017-11-01 -- all-cron.sh runs update-analysis.sh
 // BLP 2016-09-03 -- change ftp password to '7098653?' note without single quotes
 
-$page = file_get_contents("https://bartonphillips.net/analysis.eval");
+$page = file_get_contents("https://bartonlp.com/otherpages/analysis.eval");
 return eval("?>". $page);
 exit();

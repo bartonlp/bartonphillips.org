@@ -38,7 +38,9 @@ $h->favicon
 $h->defaultCss
 $h->link
 $jQuery
+<!-- Test -->
 $trackerStr
+<!-- END -->
 $h->extra
 $h->script
 $h->inlineScript

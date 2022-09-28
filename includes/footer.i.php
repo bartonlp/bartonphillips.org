@@ -44,6 +44,7 @@ return <<<EOF
 </footer>
 $geo
 {$b->script}
+{$b->inlineScript}
 </body>
 </html>
 EOF;

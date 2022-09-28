@@ -1,0 +1,70 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "8e1e18ecf4e02866515d2f4d5ae48db9",
+    "packages": [
+        {
+            "name": "bartonlp/site-class",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bartonlp/site-class.git",
+                "reference": "1cb2af977b741391fe44d9687b07fac3c1fdc597"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bartonlp/site-class/zipball/1cb2af977b741391fe44d9687b07fac3c1fdc597",
+                "reference": "1cb2af977b741391fe44d9687b07fac3c1fdc597",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "includes/database-engines/helper-functions.php"
+                ],
+                "classmap": [
+                    "includes",
+                    "includes/database-engines"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barton Phillips",
+                    "email": "bartonphillips@gmail.com",
+                    "homepage": "http://www.bartonphillips.com"
+                }
+            ],
+            "description": "PHP framework to make creating websites easier",
+            "support": {
+                "issues": "https://github.com/bartonlp/site-class/issues",
+                "source": "https://github.com/bartonlp/site-class/tree/master"
+            },
+            "time": "2022-08-14T23:57:05+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "bartonlp/site-class": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
+}

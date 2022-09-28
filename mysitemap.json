@@ -1,3 +1,7 @@
+/*
+ * SPECIAL json for use by siteload.php. Normal json will not allow
+ * comments.
+ */
 {
   "siteDomain": "bartonphillips.org",
   "siteName": "BartonphillipsOrg",
@@ -20,13 +24,11 @@
   // standard default blp.css, else the value of defaultCss.
   "masterdb": "barton",
   "dbinfo": {
-    "host": "localhost",
+    "host": "bartonphillips.com", // USE the remote database not localhost!
     "user": "barton",
-    //"password": "add-password", // the Database class gets the password
-    //from ~/database-password (or from here if this is
-    //uncommented. 
     "database": "barton",
-    "engine": "mysqli"
+    //"password": "6706424",
+    "engine": "mysqli"        
   },
   "errorMode": {
     "development": true, // development automatically sets email to true.
@@ -41,7 +43,6 @@
   "bannerFile": "/var/www/bartonphillips.org/includes/banner.i.php",
   "footerFile": "/var/www/bartonphillips.org/includes/footer.i.php",
   "count": true,
-  "countMe": true,
   "ctrmsg": "Counter Reset: April 11, 2021",
   "trackerImg1": "/images/blp-image.png",
   "EMAILADDRESS": "bartonphillips@gmail.com",
