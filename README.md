@@ -1,10 +1,11 @@
 # This is my home site on HP-Envy
 
+----
+
 # How to Get HTTPS to work with Suddenlink
 
 Suddenlink (bless there harts) blocks ports 25 and 80. They sell business plans that have these port open but not with a DVR for TV.
 So if you want a website from your home and a DVR for your cable TV your are out of luck.
-
 
 However, port 443 is still open so you can get an HTTPS cert from [Lets Encrypt](https://letsencrypt.org/) by using the following:
 
@@ -71,6 +72,8 @@ This file also uses *dnsARecord* to hold the last IP.
 
 # How to get the GM107 (GeForce 940MX) to use HDMI sound after an upgrade
 
+BLP 2022-09-28 - Not sure this works any more.
+
 This is how to get the sound working again if it stops due to a driver update.
 
 First check the 'Menu->Additional Drivers' to see that the nvidia driver is in use.
@@ -94,5 +97,5 @@ If GM107 does not say 'OFF' all is well and you should have sound again.
 
 ----
 
-# bartonphillips.org
+## Contact me: [bartonphillips@gmail.com](mailto:bartonphillips@gmail.com)
 Last Modified Oct. 28, 2022
