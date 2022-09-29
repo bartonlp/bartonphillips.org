@@ -1,9 +1,5 @@
 # This is my home site on HP-Envy
 
-I am using lfs for big files (https://git-lfs.github.com/).
-
-----
-
 # How to Get HTTPS to work with Suddenlink
 
 Suddenlink (bless there harts) blocks ports 25 and 80. They sell business plans that have these port open but not with a DVR for TV.
