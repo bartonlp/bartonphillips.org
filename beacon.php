@@ -1,0 +1,1 @@
+/home/barton/www/vendor/bartonlp/site-class/includes/beacon.php

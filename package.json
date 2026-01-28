@@ -1,5 +1,14 @@
 {
+  "name": "bartonlp.org",
+  "private": true,
+  "scripts": {
+    "build": "bun build ./ximage.js --outfile ./dist/bundle.js",
+    "watch": "bun build ./ximage.js --outfile ./dist/bundle.js --watch"
+  },
   "dependencies": {
-    "node": "^16.11.1"
+    "figlet": "latest"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
   }
 }

@@ -1,27 +1,42 @@
+# You can get here via bartonphillips.org, www.bartonphillips.org, rpi.bartonphillips.org or
+# spin.bartonphillips.org
+# If the uri is for rpi I redirect to :8000, if spin redirect to :8080
+
 # Apache2 2.4 uses Require
+
 Require all granted
 
 Options +Includes
 
 Header set Access-Control-Allow-Origin "*"
 
+# BLP 2024-11-07 - I am using SimpleSiteClass
+SetEnv SIMPLE_SITELOAD /var/www/vendor/bartonlp/simple-site-class/includes
+SetEnv SIMPLE_SITELOADNAME /var/www/vendor/bartonlp/simple-site-class/includes/simple-siteload.php
+# BLP 2026-01-28 - ADD SITELOADNAME
 SetEnv SITELOADNAME /var/www/vendor/bartonlp/site-class/includes/siteload.php
-SetEnv SITELOADNAMEOLD /var/www/vendor/bartonlp/site-class/includes/siteloadOld.php
 
 RewriteEngine On
-# Don't allow these robots
-RewriteCond %{HTTP_USER_AGENT} "baiduspider" [NC]
-RewriteRule (.*) - [F,L]
 
 # direct robots.txt to robots.php
-#RewriteRule ^robots\.txt$ robots.php [L,NC]
-#RewriteRule ^Sitemap\.xml$ sitemap.php [L,NC]
+RewriteRule ^robots\.txt$ robots.php [L,NC]
+RewriteRule ^Sitemap\.xml$ sitemap.php [L,NC]
 
 # rewrite the address of csstest.css to tracker.php?id=$1&csstest
-RewriteRule ^csstest-(.*)\.css$ https://bartonlp.com/otherpages/tracker.php?id=$1&page=csstest [L,QSA]
 
-# only bartonphillips.org is available via ssl so if I get a request for www. change it to
-# https://bartonphillips.org and provide any query info etc.
+RewriteRule ^csstest-(.*)\.css$ https://bartonphillips.org/tracker.php?id=$1&page=csstest [L,QSA]
 
-RewriteCond %{HTTP_HOST} www\.bartonphillips\.org [NC]
-RewriteRule ^(.*)$ https://bartonphillips.org/$1 [L,QSA]
+# I have an rpi uri that should go to :8000
+
+RewriteCond %{HTTP_HOST} rpi\.bartonphillips\.org [NC]
+RewriteRule ^(.*)$ https://bartonphillips.org:8000/$1 [L,QSA]
+
+# Redirect to my acer spine on port 8080
+
+RewriteCond %{HTTP_HOST} spin\.bartonphillips\.org [NC]
+RewriteRule ^(.*)$ https://bartonphillips.org:8080/$1 [L,QSA]
+
+# redirect the https://<raw static ip address> to http.
+
+RewriteCond %{HTTP_HOST} 195\.252\.232\.86 [NC]
+RewriteRule ^(.*)$ http://195.252.232.86/$1 [L,QSA]

@@ -1,0 +1,69 @@
+
+
+
+
+
+{
+  "siteDomain": "bartonphillips.org",
+  "siteName": "BartonphillipsOrg",
+  
+  "title": "Barton-Home-HP", 
+  "desc": "SimpleSiteClass with dbPdo",
+  "keywords": "My Home", 
+  
+  
+  
+  
+  "emailDomain": "bartonphillips.org",
+  "path": "/var/www/bartonphillips.org",
+  "className": "SimpleSiteClass", 
+  "copyright": "Barton L. Phillips",
+  "author": "Barton L. Phillips, mailto:bartonphillips@gmail.com",
+  "address": "New Bern, North Carolina",
+  
+  
+  "masterdb": "barton",
+  "dbinfo": {
+    "host": "localhost", 
+    "user": "barton",
+    "database": "barton",
+    "engine": "mysql", 
+    "DUMMY": null
+  },
+  "errorMode": {
+    "development": true, 
+                         
+                         
+                         
+    "noEmail": null, 
+    "noHtml": false,
+    "noOutput": false,
+    "DUMMY": null
+  },
+  "aboutwebsite": "<h2><a target='_blank' href='./aboutwebsite.php?site=BartonphillipsOrg&domain=bartonphillips.org'>About This Site</a></h2>",
+  "headFile": "/var/www/bartonphillips.org/includes/head.i.php",
+  "bannerFile": "/var/www/bartonphillips.org/includes/banner.i.php",
+  "footerFile": "/var/www/bartonphillips.org/includes/footer.i.php",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  "trackerLocationJs": "https://bartonphillips.org/tracker.js",
+  "trackerLocation": "https://bartonphillips.org/tracker.php",
+  "beaconLocation": "https://bartonphillips.org/beacon.php",
+  "count": true,
+  "ctrmsg": "Counter Reset: April 11, 2021",
+  "trackerImg1": "/images/blp-image.png",
+  "trackerImgPhone": "/images/KIM-1-phone.jpg",
+  "EMAILADDRESS": "bartonphillips@gmail.com",
+  "EMAILRETURN": "bartonphillips@gmail.com",
+  "EMAILFROM": "bartonphillips@gmail.com"
+}

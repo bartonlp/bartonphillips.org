@@ -2,21 +2,26 @@
  * SPECIAL json for use by siteload.php. Normal json will not allow
  * comments.
  */
+// BLP 2024-01-30 - This is edited to doSiteClass either false or
+// nothing.
+// Edit this to use localhost instead of bartonphillips.com
+// BLP 2023-12-14 - Using the 'pdo' branch in simple-site-class in this
+// directory.
 {
+  //"doSiteClass": true,
+  //"noTrack": false,  // If noTrack don't do any tracking
   "siteDomain": "bartonphillips.org",
   "siteName": "BartonphillipsOrg",
-  "mainTitle": "<h1>Bartonphillips.org on HP-envy</h1>",
+  //"mainTitle": "<h1>Bartonphillips.org on HP-envy</h1><p>Using SimpleSiteClass and PDO</p>",
   "title": "Barton-Home-HP", // this is the <title> item
-  "desc": "My home HP computer", // meta description
+  "desc": "SiteClass with dbPdo",
   "keywords": "My Home", // meta keywords
   // we could define a doctype and a preheadcomment
   //"doctype": "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN' 'http://www.w3.org/TR/html4/loose.dtd'>",
-  "preheadcomment": "<!-- This is a test site only and can only be reached via https -->", // This must be an HTML comment <!-- -->
-  //"noTrack": true,
   //"nodb": true,
   "emailDomain": "bartonphillips.org",
   "path": "/var/www/bartonphillips.org",
-  "className": "SiteClass",
+  "className": "SimpleSiteClass", // SimpleSiteClass
   "copyright": "Barton L. Phillips",
   "author": "Barton L. Phillips, mailto:bartonphillips@gmail.com",
   "address": "New Bern, North Carolina",
@@ -24,11 +29,11 @@
   // standard default blp.css, else the value of defaultCss.
   "masterdb": "barton",
   "dbinfo": {
-    "host": "bartonphillips.com", // USE the remote database not localhost!
+    "host": "localhost", // USE local database on bartonphillips.org
     "user": "barton",
     "database": "barton",
-    //"password": "6706424",
-    "engine": "mysqli"        
+    "engine": "mysql", // We are using the 'pdo' branch. This can be sqlite, mysql or pgsql.
+    "DUMMY": null
   },
   "errorMode": {
     "development": true, // development automatically sets email to true.
@@ -37,14 +42,32 @@
                          // Only false not null or just missing.
     "noEmail": null, 
     "noHtml": false,
-    "noOutput": false
+    "noOutput": false,
+    "DUMMY": null
   },
+  "aboutwebsite": "<h2><a target='_blank' href='./aboutwebsite.php?site=BartonphillipsOrg&domain=bartonphillips.org'>About This Site</a></h2>",
   "headFile": "/var/www/bartonphillips.org/includes/head.i.php",
   "bannerFile": "/var/www/bartonphillips.org/includes/banner.i.php",
   "footerFile": "/var/www/bartonphillips.org/includes/footer.i.php",
+  // For this server (HP-envy) I want to do all the database logic on
+  // this server. That is tracker.js, tracker.php and beacon.php
+  // This server (BartonphillipsOrg) will not be in the DigitalOcean
+  // database.
+  // IMPORTANT!!!
+  // Also note, these are full urls and they point to the site-class at
+  // /var/www/bartonphillips.org not to /var/www/vendor/...
+  // While the classes can be loaded from /var/www/vendor the
+  // tracker.js, tracker.php and beacon.php must be loaded from the
+  // https location which is /var/www/bartonphillips.org!!!
+  // BLP 2024-11-06 - Therefore I have simlinks for each which refer to
+  // /var/www/vendor/bartonlp/site-class/includes
+  "trackerLocationJs": "https://bartonphillips.org/tracker.js",
+  "trackerLocation": "https://bartonphillips.org/tracker.php",
+  "beaconLocation": "https://bartonphillips.org/beacon.php",
   "count": true,
   "ctrmsg": "Counter Reset: April 11, 2021",
   "trackerImg1": "/images/blp-image.png",
+  "trackerImgPhone": "/images/KIM-1-phone.jpg",
   "EMAILADDRESS": "bartonphillips@gmail.com",
   "EMAILRETURN": "bartonphillips@gmail.com",
   "EMAILFROM": "bartonphillips@gmail.com"
